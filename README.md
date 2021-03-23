@@ -17,6 +17,51 @@ Code is GPL licensed so do whatever you want with it, a head nod or attribution 
 * I think I want to remove the navigation bar because I don't need it
 * "Layout" of the main page can be found in `themes/berbera/layouts/_default/baseof.html`
 * Removed the navbar
+
+```html
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+    <h4 class="card-header" id="python_pandas">Pandas</h4>
+            <div class="card-body">
+                <ul>
+                    {{ range (where .Pages "File.Dir" "in" "/python/pandas/").ByTitle }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+We just need to generate some HTML code with the following template?
+
+```html
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+    <h4 class="card-header" id="DIRNAME">DIRNAME</h4>
+            <div class="card-body">
+                <ul>
+                    {{ range (where .Pages "File.Dir" "in" "/DIRNAME/").ByTitle }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+
+
+
+
 # Acknowledgements
 
 * [Chris Albon](https://github.com/chrisalbon/notes)
