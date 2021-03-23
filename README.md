@@ -15,7 +15,8 @@ Code is GPL licensed so do whatever you want with it, a head nod or attribution 
 * Structure of the notes is hardcoded in `themes/berbera/layouts/index.html`
     * This is something I want to automate and make modular with Python
 * I think I want to remove the navigation bar because I don't need it
-
+* "Layout" of the main page can be found in `themes/berbera/layouts/_default/baseof.html`
+* Removed the navbar
 # Acknowledgements
 
 * [Chris Albon](https://github.com/chrisalbon/notes)
