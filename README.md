@@ -1,15 +1,22 @@
-# notes
-Inspired, wholesale, by [Chris Albon's Data Science Notes page](https://github.com/chrisalbon/notes). In fact, if you go back in my commits, you'll see a lot of his *content*, but as I started to figure out how everything was put together, I phased all of that out and only kept the skeleton of the build, hence a copy-with-full-attribution and not fork.
+# Notes
 
-## Some Notes on My Build
+This repo contains notes that I collect and maintain. 
 
-1. I took the code Chris was using in `make.ipynb` and put it into `make.py` for easier job chaining.
-2. I develop on Windows and can't run most of the code locally, lol.
-    * So if you're a windows user who forked this, and runs on your computer, a blank `index.html` means your build does the same thing mine does.
-3. Chris used a tool called Hugo to build the page, I just downloaded a binary directly to the `binaries` folder...
-4. ... so I can build all of the code directly up in TravisCI.
-5. I did a ton of rooting around in the `themes` folder to redirect/rename a lot of fields, as well as better match the aesthetic of [my blog's](https://napsterinblue.github.io) css.
-6. The structure of the way the notes render are more or less hard-coded in `themes/berbera/layouts/index.html`, but I think I could automate a lot of that in Go if I knew Go whatsoever.
-7. The navigation bar at the top is cheated to look like it's connected to my blog. It's not. Source code for that is [here](https://github.com/NapsterInBlue/MoviesMetricsMusings).
+I've long wanted a repository like Chris Albon's but never got around to figuring it out how it works.
 
-That's about it. Cheers!
+That's why I want to build it out here, in the open, with copious notes. It took me a long time to get started and hopefully finish this one day so I want to provide as much documentation as possible so I clear the path ahead for others wanting to do the same. 
+
+Code is GPL licensed so do whatever you want with it, a head nod or attribution would be nice :)
+
+## Build notes
+### 23-01-2020
+
+* To run simply run `hugo server`  
+* Structure of the notes is hardcoded in `themes/berbera/layouts/index.html`
+    * This is something I want to automate and make modular with Python
+* I think I want to remove the navigation bar because I don't need it
+
+# Acknowledgements
+
+* [Chris Albon](https://github.com/chrisalbon/notes)
+* [Napster In Blue](https://napsterinblue.github.io/notes/)
