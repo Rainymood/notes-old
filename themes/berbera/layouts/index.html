@@ -1,12 +1,14 @@
+
 {{ define "main" }}
 <main>
+
   <div class="homepage">
     <div class="row">
       <div class="col-sm-12">
         <h1>
-          <span class="minor_line">Jan Meppe's Notes on</span>
+          <span class="minor_line">Jan Meppe's Notes On</span>
           <br />
-          <span class="major_line">Python and Data Science Notes</span>
+          <span class="major_line">Data Science & Machine Learning</span>
           <br />
           <!-- <span class="minor_line">To Scale Myself</span> -->
         </h1>
@@ -29,17 +31,62 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <h4 class="card-header">Basics</h4>
+                <h4 class="card-header">advanced</h4>
                 <div class="card-body">
                     {{ $section := site.GetPage "advanced" }}
                     {{ range $section.RegularPagesRecursive }}
-                    <a href="{{ .Permalink }}">{{ .Title }} </a>
+                    <ul>
+                    <li>
+                      <a href="{{.Permalink}}">{{.Title}}</a>
+                      <p>link: {{.Permalink}}</p>
+                  </li>
+                    </ul>
                     {{ end }}
-
                 </div>
             </div>
         </div>
     </div>
+  
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <h4 class="card-header">creating-data</h4>
+                <div class="card-body">
+                    {{ $section := site.GetPage "creating-data" }}
+                    {{ range $section.RegularPagesRecursive }}
+                    <ul>
+                    <li>
+                      <a href="{{.Permalink}}">{{.Title}}</a>
+                      <p>link: {{.Permalink}}</p>
+                  </li>
+                    </ul>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <h4 class="card-header">sklearn-pipelines</h4>
+                <div class="card-body">
+                    {{ $section := site.GetPage "sklearn-pipelines" }}
+                    {{ range $section.RegularPagesRecursive }}
+                    <ul>
+                    <li>
+                      <a href="{{.Permalink}}">{{.Title}}</a>
+                      <p>link: {{.Permalink}}</p>
+                  </li>
+                    </ul>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+  
 
   </div>
 </main>

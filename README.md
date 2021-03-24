@@ -8,6 +8,22 @@ That's why I want to build it out here, in the open, with copious notes. It took
 
 Code is GPL licensed so do whatever you want with it, a head nod or attribution would be nice :)
 
+## Usage
+
+Put notebooks in `content` folder
+
+Make sure to add this jekyll front matter
+
+```
+```
+
+Then run 
+
+```
+python make.py && python generate-html.py
+```
+
+
 ## Build notes
 ### 23-01-2020
 
@@ -196,6 +212,58 @@ holy fucking shit is the the solution?
 DONT GET YOUR HOPES UP! 
 
 How the fuck could I have figured out that it wouldve been `RegularPagesRecursive` without anyu fucking hugo knowledge what the fuck 
+
+I feel like I am getting very close. The only thing that is missing is the front matter now. 
+
+It looks like chris albon adds markdown as raw cells to his notebooks
+
+```
+      "source": [
+        "---\n",
+        "title: \"Annotate Nested Function Parameters\"\n",
+        "author: \"Chris Albon\"\n",
+        "date: 2021-02-19T00:00:00-07:00\n",
+        "description: \"How to annotate a function with nested parameters in Python.\"\n",
+        "type: technical_note\n",
+        "draft: false\n",
+        "---"
+      ]
+    },
+    ```
+
+maybe this tool works
+
+https://jekyllnb.readthedocs.io/en/latest/
+
+OK I THINK I FOUND IT. 
+
+The point is that we refer to the `TITLE` variable so we NEED That variable in our front matter. That is the only thing that really matters. Then the links work out.
+
+This front matter works for example
+
+```
+---
+title: "advanced 2"
+# author: "Chris Albon"
+# date: 2017-12-20T11:53:49-07:00
+# description: "Loading Features From Dictionaries Using Python."
+# type: technical_note
+# draft: false
+---
+
+```
+
+https://github.com/earthlab/tutorials/issues/38
+
+LOL This guy ran into EXACTLY the same issue. MOOD. 
+
+> Currently, we're going through all kinds of backflips in the process of populating yaml frontmatter for notebooks destined to become markdown posts on our Jekyll site. This is overcomplicated. Instead, let's just include the yaml in the first cell (markdown) for each notebook.
+
+Some of the notebooks work. Some of the notebooks dont
+
+need to remove the `permalink` in the frontmatter if it doesn't work
+
+
 
 # Acknowledgements
 
