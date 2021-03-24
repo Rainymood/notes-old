@@ -1,52 +1,46 @@
 {{ define "main" }}
 <main>
-    <div class="homepage">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>
-                        <span class="minor_line">Jan Meppe's Notes on</span>
-                        <br>
-                    <span class="major_line">Python and Data Science Notes</span>
-                    <br>
-                    <!-- <span class="minor_line">To Scale Myself</span> -->
-                </h1>
-            </div>
-        </div>
+  <div class="homepage">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>
+          <span class="minor_line">Jan Meppe's Notes on</span>
+          <br />
+          <span class="major_line">Python and Data Science Notes</span>
+          <br />
+          <!-- <span class="minor_line">To Scale Myself</span> -->
+        </h1>
+      </div>
+    </div>
 
-        <div class="row">
-            <div class="col-sm-12 blurb">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                <!-- <p>For a good while, whenever I'd start to learn something new, I'd go down a rabbit hole of documentation, books, YouTube videos, etc. As I dug deeper and deeper into the material, I'd leave behind mountain of scratch paper where I'd jotted along. Then (if I even found the time) I'd rewrite/distill it into some Moleskine notebook for "easy reference" later.</p>
-                <p>Then, of course, you have to know how to reference all of your reference materials. If I forgot to bring my notebook to work, I'd be out of luck. Or better yet, how would I share the notes that I took if they might be useful for someone else?</p>
-                <p>So, by the time I found <a href="https://chrisalbon.com/">Chris Albon's excellent note-compiling repository</a> it felt like the answer to all of my problems. After a good deal of reverse-engineering, this page is less about curating a body of work, and more a consistent place that I can stage the things I'm figuring out. That means that I don't intend to brain-dump all of the things I know just to fill space. <strong>If you're new</strong> and looking for beginner materials, <a href="https://napsterinblue.github.io/pages/resources.html#my-python-essentials">this might prove more helpful!</a> -->
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-sm-12 blurb">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
+      </div>
+    </div>
 
 
-        <!-- <div class="row" id="python">
-            <div class="col-sm-12">
-                <h3 class="category_header">Python</h3>
-            </div>
-        </div> -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <h4 class="card-header">Basics</h4>
+                <div class="card-body">
+                    {{ $section := site.GetPage "advanced" }}
+                    {{ range $section.RegularPagesRecursive }}
+                    <a href="{{ .Permalink }}">{{ .Title }} </a>
+                    {{ end }}
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                <h3 class="category_header">Python</h3>
-                    <div class="card-body">
-                        <ul>
-                            {{ range (where .Pages "File.Dir" "in" "/python/pandas/").ByTitle }}
-                            <li>
-                                <a href="{{.Permalink}}">{{.Title}}</a>
-                            </li>
-                            {{ end }}
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
+  </div>
 </main>
 {{ end }}

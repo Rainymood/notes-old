@@ -58,9 +58,144 @@ We just need to generate some HTML code with the following template?
 </div>
 ```
 
+## 24-03-2021
+
+* `archetypes/default.md` contains the main `.yaml` frontmatter for each post, edit your own name in there there
+* put your notebooks in `content/`
+* ideally use lowercase and hyphens for naming
+* TODO: change analytics tag
+* As far as I am aware now running `make.py` creates the markdown files in the same folder as the ipython notebooks, this is not convenient
+* Here's some documentation on Hugo's dir structure https://gohugo.io/getting-started/directory-structure/
+    * `content` all content lives in this folder, each top level folder  in hugo is a content section
+    * `themes/static` contains static things
+    * `themes/layouts` stores templates of how yo
+
+To figure out the structure of how Hugo parses files so I can take the right ones I made a new project with `hugo new server`. Now the thing is that my posts werent appearing. The reason? I had set the value `draft` to `true` and ran `hugo server` which by default doesn't show drafts.
+
+```yaml
+---
+title: "Post"
+date: 2021-03-24T08:07:48+01:00
+draft: false
+---
+```
+
+I think the value `publishDir="docs"` defines where hugo publishes the docs
+
+* googled `iterate over files 1in directory hugo`
+* some info on looping https://www.petfactory.se/notes/hugo_notes/
+
+All I have to do is figure out a way how to iterate over the folders
+
+```html
+<ul>
+    {{ range (where .Pages "File.Dir" "in" "/creating-data/").ByTitle }}
+    <li>
+    <a href="{{.Permalink}}">{{.Title}}</a>
+    </li>
+    {{ end }}
+</ul>
+```
+
+* FUCK YES! I DID IT! I looped over the fucking fiels in the directory. Its not the right one but it is a directory!!!! 
+
+![](/assets/README/2021-03-24-08-56-17.png)
+
+* https://acanalis.github.io/post/concepts-of-hugo/#2-info-for-theme-users
+
+This worked for a bit ... 
+```
+                        {{ range (readDir "/content/creating-data") }}
+                        <li>
+                            <p>
+                            {{ .Name }}
+                            </p>
+                        </li>
+                        {{ end }}
+```
 
 
+probeersels
 
+```
+
+                    <ul>
+                        {{ range (where .Pages "File.Dir" "in" "/machine_learning/basics/") }}
+                        <li>
+                            <a href="{{.Permalink}}">{{.Title}}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+
+                    <ul>
+                        {{ range (readDir "/content/creating-data") }}
+                        <li>
+                            <p>
+                            {{ .Name }}
+                            </p>
+                        </li>
+                        {{ end }}
+                    </ul>
+
+                    {{ range .Pages }} <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </li>
+                    {{ end }}
+
+                    ```
+
+Running into this error
+
+```
+Failed to render pages: render of "home" failed: "/Users/janmeppe/Documents/Projects/notes/themes/berbera/layouts/index.html:46:39": execute of template failed: template: index.html:46:39: executing "main" at <.Permalink>: can't evaluate field Permalink in type os.FileInfo
+```
+
+added `ignoreFIles` to `config.toml`
+
+The problem that I am running into is that my `.Pages` variable is empty.
+
+I changed the content of the `content` folder to look like this 
+
+```
+./content
+├── advanced
+│   ├── post1.md
+│   ├── post2.md
+│   └── post3.md
+├── basics
+│   ├── post2.md
+│   └── post3.md
+└── post1.md
+```
+
+And now I ONLY see the post1 ...but that's a whole lot better than before.
+
+```
+                    {{range (where .Pages }}
+                    <a href="{{ .Permalink }}">{{ .Title }} </a>
+                    {{end}}
+                    ```
+
+This then works but only shows `post1.md` 
+
+https://stackoverflow.com/questions/53562000/hugo-doesnt-show-pages-in-a-subdirectory-file-dir
+
+Honestly if i sole this problem im gonna cry legit
+
+
+https://github.com/osmancakir/osmancakirioblog
+
+Guy wit hthe same issue 
+
+https://discourse.gohugo.io/t/posts-not-showing-in-windows-but-showing-in-ubuntu-hugo-server/27971
+
+https://discourse.gohugo.io/t/listing-all-pages-within-sub-directories/31631/2
+
+holy fucking shit is the the solution? 
+
+DONT GET YOUR HOPES UP! 
+
+How the fuck could I have figured out that it wouldve been `RegularPagesRecursive` without anyu fucking hugo knowledge what the fuck 
 
 # Acknowledgements
 
