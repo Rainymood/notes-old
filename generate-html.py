@@ -55,7 +55,6 @@ def generate_template(dir_name):
                     <ul>
                     <li>
                       <a href="{{.Permalink}}">{{.Title}}</a>
-                      <p>link: {{.Permalink}}</p>
                   </li>
                     </ul>
                     {{ end }}

@@ -241,29 +241,39 @@ The point is that we refer to the `TITLE` variable so we NEED That variable in o
 
 This front matter works for example
 
-```
----
+```yaml
 title: "advanced 2"
-# author: "Chris Albon"
-# date: 2017-12-20T11:53:49-07:00
-# description: "Loading Features From Dictionaries Using Python."
-# type: technical_note
-# draft: false
----
-
+author: "Chris Albon"
+date: 2017-12-20T11:53:49-07:00
+description: "Loading Features From Dictionaries Using Python."
+type: technical_note
+draft: false
 ```
 
 https://github.com/earthlab/tutorials/issues/38
 
 LOL This guy ran into EXACTLY the same issue. MOOD. 
 
-> Currently, we're going through all kinds of backflips in the process of populating yaml frontmatter for notebooks destined to become markdown posts on our Jekyll site. This is overcomplicated. Instead, let's just include the yaml in the first cell (markdown) for each notebook.
+> Currently, we're going through all kinds of backflips in the process of
+populating yaml frontmatter for notebooks destined to become markdown posts
+on our Jekyll site. This is overcomplicated. Instead, let's just include the
+yaml in the first cell (markdown) for each notebook.
 
 Some of the notebooks work. Some of the notebooks dont
 
 need to remove the `permalink` in the frontmatter if it doesn't work
 
+This is so freaking weird. Some of the links work but some of the links dont. WHY!? 
 
+## 25-03-2021
+
+What if we add in the yaml file directly? Do the permalinks then work?
+
+OK OK OK OK OK SO it REALLY REALLY needs a front matter.
+
+It really only needs a title, the markdown file
+
+So then for one file it works, but for another one that I Try it DOESNT. WHY NOT?! 
 
 # Acknowledgements
 

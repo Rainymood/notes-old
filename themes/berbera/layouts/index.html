@@ -31,26 +31,6 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <h4 class="card-header">advanced</h4>
-                <div class="card-body">
-                    {{ $section := site.GetPage "advanced" }}
-                    {{ range $section.RegularPagesRecursive }}
-                    <ul>
-                    <li>
-                      <a href="{{.Permalink}}">{{.Title}}</a>
-                      <p>link: {{.Permalink}}</p>
-                  </li>
-                    </ul>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </div>
-  
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
                 <h4 class="card-header">creating-data</h4>
                 <div class="card-body">
                     {{ $section := site.GetPage "creating-data" }}
@@ -58,27 +38,6 @@
                     <ul>
                     <li>
                       <a href="{{.Permalink}}">{{.Title}}</a>
-                      <p>link: {{.Permalink}}</p>
-                  </li>
-                    </ul>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </div>
-  
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <h4 class="card-header">sklearn-pipelines</h4>
-                <div class="card-body">
-                    {{ $section := site.GetPage "sklearn-pipelines" }}
-                    {{ range $section.RegularPagesRecursive }}
-                    <ul>
-                    <li>
-                      <a href="{{.Permalink}}">{{.Title}}</a>
-                      <p>link: {{.Permalink}}</p>
                   </li>
                     </ul>
                     {{ end }}
